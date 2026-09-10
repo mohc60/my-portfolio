@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portfolio</title>
+    <meta
+      name="description"
+      content="A simple student portfolio with a hero section, about me, skills, project, and contact details."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#home">Ava Stone</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          Dark mode
+        </button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <!-- Hero section -->
+      <section class="hero container">
+        <div class="hero-text">
+          <p class="eyebrow">Student developer</p>
+          <h1>Building ideas into useful digital experiences.</h1>
+          <p class="lead">
+            I’m Ava, a student learning web design and front-end development. I enjoy
+            creating clean, accessible, and user-friendly websites.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View my work</a>
+            <a class="button secondary" href="#contact">Contact me</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Profile summary card">
+          <div class="avatar" aria-hidden="true">AS</div>
+          <h2>Quick facts</h2>
+          <ul>
+            <li>Current focus: HTML, CSS, JavaScript</li>
+            <li>Learning: responsive design and accessibility</li>
+            <li>Goal: build meaningful portfolio projects</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- About section -->
+      <section id="about" class="section container">
+        <div class="section-heading">
+          <p class="eyebrow">About Me</p>
+          <h2>Passionate about learning and creating.</h2>
+        </div>
+        <div class="about-grid">
+          <p>
+            I’m a student with a growing interest in technology, design, and problem-solving.
+            I like turning ideas into simple, useful experiences that people can enjoy and
+            understand easily.
+          </p>
+          <p>
+            Through coursework and personal projects, I’ve been improving my skills in front-end
+            development, visual design, and writing clean code that is easy to maintain.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills section -->
+      <section id="skills" class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Skills & Interests</p>
+            <h2>What I’m learning and exploring.</h2>
+          </div>
+          <div class="skills-grid" aria-label="Skills and interests list">
+            <div class="skill-item">
+              <h3>Web Design</h3>
+              <p>Creating layouts that are clean, attractive, and easy to use.</p>
+            </div>
+            <div class="skill-item">
+              <h3>HTML & CSS</h3>
+              <p>Structuring content and styling pages for a strong user experience.</p>
+            </div>
+            <div class="skill-item">
+              <h3>JavaScript</h3>
+              <p>Adding simple interactivity and improving how pages respond to users.</p>
+            </div>
+            <div class="skill-item">
+              <h3>Accessibility</h3>
+              <p>Making content readable, usable, and welcoming for everyone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project section -->
+      <section id="projects" class="section container">
+        <div class="section-heading">
+          <p class="eyebrow">Project</p>
+          <h2>Featured work.</h2>
+        </div>
+
+        <article class="project-card" aria-label="Featured project card">
+          <div class="project-copy">
+            <h3>Study Planner Dashboard</h3>
+            <p>
+              I created a simple dashboard for organizing classes, assignments, and study goals.
+              The page focuses on clear information, readable layout, and helpful visual hierarchy.
+            </p>
+            <ul>
+              <li>Built with semantic HTML and responsive CSS</li>
+              <li>Includes clear sections for tasks and priorities</li>
+              <li>Designed to feel simple and student-friendly</li>
+            </ul>
+            <a class="button primary" href="#contact">Ask about it</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s connect.</h2>
+        </div>
+        <div class="footer-links" aria-label="Contact links">
+          <a href="mailto:ava@example.com">ava@example.com</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
