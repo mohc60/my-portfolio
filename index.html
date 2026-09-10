@@ -3,147 +3,1074 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Portfolio</title>
+    <title>Mohammad Chaudhry | Java Developer</title>
     <meta
       name="description"
-      content="A simple student portfolio with a hero section, about me, skills, project, and contact details."
+      content="Professional portfolio website for Mohammad Chaudhry, Java developer and full-stack learner."
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f5f7;
+        --bg-strong: #ebebef;
+        --surface: rgba(255, 255, 255, 0.72);
+        --surface-solid: #ffffff;
+        --surface-alt: #f1f1f3;
+        --surface-code: #111827;
+        --text: #1d1d1f;
+        --text-soft: #6e6e73;
+        --heading: #1d1d1f;
+        --primary: #0071e3;
+        --primary-dark: #005cc8;
+        --border: rgba(0, 0, 0, 0.08);
+        --shadow: rgba(0, 0, 0, 0.06);
+        --muted-shadow: rgba(15, 23, 42, 0.04);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
+        background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 14%, #f5f5f7 100%);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin-bottom: 0.35rem;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 5.5rem 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .section-alt {
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .section-heading {
+        margin-bottom: 2.3rem;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 0.8rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--heading);
+        line-height: 1.08;
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 6vw, 5.6rem);
+        letter-spacing: -0.065em;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: clamp(2.1rem, 4vw, 3.3rem);
+        letter-spacing: -0.055em;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(245, 245, 247, 0.76);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+        gap: 1rem;
+      }
+
+      .brand-block {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .brand-name {
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .brand-title {
+        font-size: 0.74rem;
+        color: var(--text-soft);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--text-soft);
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 5rem 0 4rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .lead {
+        max-width: 62ch;
+        font-size: 1.12rem;
+        color: var(--text-soft);
+      }
+
+      .hero-tagline {
+        font-size: 1.12rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .button,
+      .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+
+      .button.primary,
+      .copy-btn {
+        background: linear-gradient(180deg, #1a73e8 0%, #0a66d0 100%);
+        color: #fff;
+        border-color: rgba(0, 0, 0, 0.04);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--text);
+      }
+
+      .button:hover,
+      .button:focus-visible,
+      .copy-btn:hover,
+      .copy-btn:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 30px rgba(0, 113, 227, 0.16);
+      }
+
+      .hero-card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.74));
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        padding: 2rem 1.8rem;
+        box-shadow: 0 18px 48px var(--shadow);
+      }
+
+      .mini-card {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #111827 0%, #3b82f6 100%);
+        color: white;
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .hero-card h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      .hero-card ul {
+        padding-left: 1.2rem;
+        color: var(--text-soft);
+      }
+
+      .about-grid,
+      .skills-grid,
+      .project-grid,
+      .plan-grid,
+      .strengths-grid,
+      .training-grid,
+      .work-steps {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid p,
+      .project-card p,
+      .project-card li,
+      .skill-box p,
+      .topic-box p,
+      .strength-item p,
+      .training-item p,
+      .step-item p,
+      .keyconcept-list li,
+      .growth-list li {
+        color: var(--text-soft);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .skill-box,
+      .topic-box,
+      .strength-item,
+      .training-item,
+      .step-item,
+      .project-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 1.6rem;
+        box-shadow: 0 12px 32px var(--muted-shadow);
+      }
+
+      .skill-box h3,
+      .topic-box h3,
+      .strength-item h3,
+      .training-item h3,
+      .step-item h3,
+      .project-card h3 {
+        margin-bottom: 0.75rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tech {
+        display: inline-block;
+        background: rgba(0, 113, 227, 0.06);
+        border: 1px solid rgba(0, 113, 227, 0.12);
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+
+      .code-block {
+        margin-top: 1.3rem;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: var(--surface-code);
+        box-shadow: 0 20px 30px rgba(17, 24, 39, 0.12);
+      }
+
+      .code-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.7rem 1rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .code-dots {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .dot.red { background: #f87171; }
+      .dot.yellow { background: #fbbf24; }
+      .dot.green { background: #4ade80; }
+
+      pre {
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.86rem;
+        line-height: 1.6;
+        color: #e2e8f0;
+      }
+
+      .copy-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .plan-grid,
+      .strengths-grid,
+      .training-grid,
+      .work-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .keyconcept-list {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .growth-list {
+        list-style: disc;
+        color: var(--text-soft);
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 2rem;
+        box-shadow: 0 12px 30px var(--muted-shadow);
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .contact-list a {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .footer {
+        padding: 1.8rem 0 2.5rem;
+        background: #f0f0f3;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .muted {
+        color: var(--text-soft);
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .about-grid,
+        .skills-grid,
+        .project-grid,
+        .plan-grid,
+        .strengths-grid,
+        .training-grid,
+        .work-steps {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 0.8rem 0;
+        }
+
+        .nav-links {
+          justify-content: center;
+        }
+
+        .hero {
+          padding-top: 3rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .button,
+        .copy-btn {
+          width: 100%;
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        animation: fadeUp 0.7s ease both;
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
+    <header class="header">
       <nav class="nav container" aria-label="Main navigation">
-        <a class="brand" href="#home">Ava Stone</a>
+        <div class="brand-block" aria-label="Mohammad Chaudhry profile">
+          <span class="brand-name">Mohammad Chaudhry</span>
+          <span class="brand-title">Java Developer | Full-Stack Development</span>
+        </div>
+
         <div class="nav-links">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#code-examples">Code Examples</a>
           <a href="#contact">Contact</a>
         </div>
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Switch to dark mode"
-        >
-          Dark mode
-        </button>
       </nav>
     </header>
 
     <main id="home">
-      <!-- Hero section -->
-      <section class="hero container">
-        <div class="hero-text">
-          <p class="eyebrow">Student developer</p>
-          <h1>Building ideas into useful digital experiences.</h1>
-          <p class="lead">
-            I’m Ava, a student learning web design and front-end development. I enjoy
-            creating clean, accessible, and user-friendly websites.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View my work</a>
-            <a class="button secondary" href="#contact">Contact me</a>
+      <section class="hero">
+        <div class="container hero-grid animate">
+          <div>
+            <p class="eyebrow">Java Developer</p>
+            <h1>Mohammad Chaudhry</h1>
+            <p class="hero-tagline">
+              Java developer in training with a strong foundation in software engineering, databases, and APIs.
+            </p>
+            <p class="lead">
+              I’m a Java developer focused on building reliable software through fundamentals, structured problem-solving, and hands-on learning in full-stack development. I enjoy breaking down complex problems, testing assumptions, and writing code that is practical and maintainable.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">View Projects</a>
+              <a class="button secondary" href="#contact">Contact Me</a>
+              <a
+                class="button secondary"
+                href="https://www.linkedin.com/in/mohammadchaudhryuw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Quick summary">
+            <div class="mini-card" aria-hidden="true">MC</div>
+            <h3>Quick Snapshot</h3>
+            <ul>
+              <li>Java developer focused on clean architecture</li>
+              <li>Strong foundation in OOP, databases, and REST APIs</li>
+              <li>Builds solutions through testing and validation</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Software engineer building reliable systems through fundamentals and problem-solving.</h2>
+          </div>
+
+          <div class="about-grid">
+            <p>
+              I’m a software engineer based in Seattle with a B.S. in Computer Science and Software Engineering from the University of Washington. I’m currently expanding my technical foundation through intensive full-stack development training, where I’m building expertise in Spring, SQL, Java, and modern web technologies. My background combines formal CS education with hands-on IT systems work—I've spent time as an IT Support Engineer at Snohomish County PUD, where I managed device deployment, printer firmware, and enterprise asset management across multiple sites, and as a Computer Lab Assistant supporting dozens of lab systems.
+            </p>
+            <p>
+              This blend of theory and practice has given me a realistic understanding of how software fits into larger systems and what reliability actually means. I work methodically—breaking problems into manageable pieces, testing assumptions, and building solutions that handle real-world complexity. I’m particularly interested in applied AI and how tools like large language models are changing the way engineers work. I’m an active member of Copilot Country Seattle, a monthly community where professionals share practical AI use cases and real implementations.
+            </p>
+            <p>
+              I’m drawn to problems that require both technical depth and clear communication—whether that’s coordinating with vendors, training users, or writing code that other people will actually maintain. I learn quickly, ask good questions, and enjoy working on things that ship.
+            </p>
+            <p>
+              My focus is on building strong fundamentals while staying current with emerging tools, especially where software engineering meets real-world operations and practical business value.
+            </p>
           </div>
         </div>
+      </section>
 
-        <div class="hero-card" aria-label="Profile summary card">
-          <div class="avatar" aria-hidden="true">AS</div>
-          <h2>Quick facts</h2>
-          <ul>
-            <li>Current focus: HTML, CSS, JavaScript</li>
-            <li>Learning: responsive design and accessibility</li>
-            <li>Goal: build meaningful portfolio projects</li>
+      <section id="skills" class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Core Skills</p>
+            <h2>Java, databases, APIs, and engineering fundamentals.</h2>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-box">
+              <h3>Java & OOP</h3>
+              <p>Classes, methods, objects, inheritance, interfaces, String manipulation, array algorithms, control flow, recursion concepts, and collections such as ArrayList, HashMap, and Set basics.</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Databases & SQL</h3>
+              <p>SQL fundamentals, database design, primary keys, foreign keys, JDBC, PreparedStatement usage, filtering, joins, and optimized query writing.</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Web Development & APIs</h3>
+              <p>REST API concepts, HTTP fundamentals, JSON, serialization/deserialization, endpoint design, request/response handling, and stateless architecture.</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Frameworks & Tools</h3>
+              <p>Javalin, Jackson, JUnit, Mockito, Maven, and Git version control basics.</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Software Architecture</h3>
+              <p>Layered Architecture, separation of concerns, dependency injection, and design patterns like Factory, DAO, and Service.</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Methodology</h3>
+              <p>Agile/Scrum, Waterfall vs Agile decisions, SOLID principles, and Test-Driven Development (TDD).</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Professional Experience</p>
+            <h2>Real-world support, systems work, and user-focused troubleshooting.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>IT Support Engineer Intern</h3>
+              <p><strong>Snohomish County Public Utility District</strong></p>
+              <ul>
+                <li>Deployed and imaged 70+ devices across a multi-site enterprise environment</li>
+                <li>Managed firmware updates across 50+ networked printers</li>
+                <li>Coordinated with vendors on hardware and software issues</li>
+                <li>Provided end-user support and training across multiple departments</li>
+                <li>Handled asset management and inventory tracking for enterprise equipment</li>
+              </ul>
+            </article>
+
+            <article class="project-card">
+              <h3>Computer Lab Assistant</h3>
+              <p><strong>Edmonds College</strong></p>
+              <ul>
+                <li>Supported 50+ lab systems and workstations</li>
+                <li>Trained users on lab equipment and software</li>
+                <li>Performed system maintenance and troubleshooting</li>
+                <li>Helped maintain a consistent and reliable technology environment for students</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Projects & Learning</p>
+            <h2>Hands-on work and practical engineering experience.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>Flight Tracker REST API</h3>
+              <ul>
+                <li>Implemented Data Access Layer with SQL queries for flight operations</li>
+                <li>Designed service layer for business logic and validation</li>
+                <li>Created relational database schema with proper relationships</li>
+                <li>Built CRUD operations and filtering by departure and arrival cities</li>
+              </ul>
+              <div class="tech-list" aria-label="Technologies used">
+                <span class="tech">Java</span>
+                <span class="tech">SQL</span>
+                <span class="tech">JDBC</span>
+                <span class="tech">REST API</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Library Management System</h3>
+              <ul>
+                <li>Built DAO classes for books and authors</li>
+                <li>Implemented service layer with business rules</li>
+                <li>Designed relational database schema</li>
+                <li>Wrote 15+ unit tests using JUnit</li>
+              </ul>
+              <div class="tech-list" aria-label="Technologies used">
+                <span class="tech">Java</span>
+                <span class="tech">SQL</span>
+                <span class="tech">JUnit</span>
+                <span class="tech">Maven</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Jackson/JSON Lab</h3>
+              <ul>
+                <li>Parsed JSON request bodies into Java objects</li>
+                <li>Converted Java objects to JSON for responses</li>
+                <li>Handled HTTP POST requests with JSON payload</li>
+                <li>Built endpoints that accept and return JSON</li>
+              </ul>
+              <div class="tech-list" aria-label="Technologies used">
+                <span class="tech">Java</span>
+                <span class="tech">JSON</span>
+                <span class="tech">Javalin</span>
+                <span class="tech">Jackson</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="code-examples" class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Code Examples</p>
+            <h2>Java snippets I’ve written while learning and building.</h2>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="code-1">Copy</button>
+            </div>
+            <pre id="code-1"><code>public List&lt;Flight&gt; getAllFlightsFromCityToCity(String departure_city, String arrival_city) {
+    String sql = "SELECT * FROM flight WHERE departure_city = ? AND arrival_city = ?";
+    List&lt;Flight&gt; flights = new ArrayList&lt;&gt;();
+
+    try {
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, departure_city);
+        ps.setString(2, arrival_city);
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Flight flight = new Flight(
+                rs.getInt("flight_id"),
+                rs.getString("departure_city"),
+                rs.getString("arrival_city")
+            );
+            flights.add(flight);
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+    return flights;
+}</code></pre>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="code-2">Copy</button>
+            </div>
+            <pre id="code-2"><code>public Flight updateFlight(int flight_id, Flight flight) {
+    if (flightDAO.getFlightById(flight_id) != null) {
+        flightDAO.updateFlight(flight_id, flight);
+        return flightDAO.getFlightById(flight_id);
+    }
+    return null;
+}</code></pre>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="code-3">Copy</button>
+            </div>
+            <pre id="code-3"><code>public int count(String in) {
+    if (in == null || in.length() == 0) return 0;
+
+    int count = 1;
+    for (int i = 0; i < in.length(); i++) {
+        if (in.charAt(i) == ' ') {
+            count++;
+        }
+    }
+    return count;
+}</code></pre>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="code-4">Copy</button>
+            </div>
+            <pre id="code-4"><code>public boolean check(int[] arr, int target) {
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] == target) {
+                return true;
+            }
+        }
+    }
+    return false;
+}</code></pre>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <button class="copy-btn" type="button" data-copy-target="code-5">Copy</button>
+            </div>
+            <pre id="code-5"><code>public String removeAll(String str, String ch) {
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < str.length(); i++) {
+        if (str.charAt(i) != ch.charAt(0)) {
+            result.append(str.charAt(i));
+        }
+    }
+    return result.toString();
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Key Concepts</p>
+            <h2>Core ideas I understand and apply in my engineering work.</h2>
+          </div>
+
+          <div class="plan-grid">
+            <article class="topic-box">
+              <h3>Layered Architecture Pattern</h3>
+              <p>HTTP Request → Controller → Service → DAO → Database</p>
+              <p class="muted">Each layer has one responsibility. Changes to the database do not directly affect the controller.</p>
+            </article>
+
+            <article class="topic-box">
+              <h3>Database Design</h3>
+              <ul class="keyconcept-list">
+                <li><strong>Primary Key:</strong> Unique identifier for each row</li>
+                <li><strong>Foreign Key:</strong> Links to another table</li>
+                <li><strong>PreparedStatement:</strong> Prevents SQL injection attacks</li>
+                <li><strong>ResultSet:</strong> Container of rows returned from a query</li>
+              </ul>
+            </article>
+
+            <article class="topic-box">
+              <h3>REST API Design</h3>
+              <ul class="keyconcept-list">
+                <li>GET = Read/retrieve data</li>
+                <li>POST = Create new resource</li>
+                <li>PUT = Update entire resource</li>
+                <li>DELETE = Remove resource</li>
+                <li>Status Codes: 200, 400, 500</li>
+              </ul>
+            </article>
+
+            <article class="topic-box">
+              <h3>Testing Strategy</h3>
+              <ul class="keyconcept-list">
+                <li>Write tests FIRST (TDD)</li>
+                <li>Use assertions to verify behavior</li>
+                <li>Mock dependencies for isolated testing</li>
+                <li>Test business logic, not just happy paths</li>
+              </ul>
+            </article>
+
+            <article class="topic-box">
+              <h3>SOLID Principles</h3>
+              <ul class="keyconcept-list">
+                <li>Single Responsibility</li>
+                <li>Open/Closed</li>
+                <li>Liskov Substitution</li>
+                <li>Interface Segregation</li>
+                <li>Dependency Inversion</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Strengths</p>
+            <h2>What helps me work effectively and learn quickly.</h2>
+          </div>
+
+          <div class="strengths-grid">
+            <article class="strength-item">
+              <h3>Problem Solver</h3>
+              <p>Debug by understanding error messages and tracing code flow.</p>
+            </article>
+            <article class="strength-item">
+              <h3>Quick Learner</h3>
+              <p>Grasp new frameworks by reading documentation and examples.</p>
+            </article>
+            <article class="strength-item">
+              <h3>Attention to Detail</h3>
+              <p>Catch edge cases such as empty strings, null values, and index bounds.</p>
+            </article>
+            <article class="strength-item">
+              <h3>Testing Mindset</h3>
+              <p>Write tests to verify behavior before deployment.</p>
+            </article>
+            <article class="strength-item">
+              <h3>Clean Code</h3>
+              <p>Follow architectural patterns for maintainability.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Growth Areas</p>
+            <h2>Currently learning and improving.</h2>
+          </div>
+
+          <ul class="growth-list">
+            <li>Advanced Collections, including Streams API and functional programming concepts</li>
+            <li>Exception handling and more robust error management in Java applications</li>
+            <li>Spring Framework, including Spring Boot and dependency injection</li>
+            <li>Database optimization and query performance improvements</li>
           </ul>
         </div>
       </section>
 
-      <!-- About section -->
-      <section id="about" class="section container">
-        <div class="section-heading">
-          <p class="eyebrow">About Me</p>
-          <h2>Passionate about learning and creating.</h2>
-        </div>
-        <div class="about-grid">
-          <p>
-            I’m a student with a growing interest in technology, design, and problem-solving.
-            I like turning ideas into simple, useful experiences that people can enjoy and
-            understand easily.
-          </p>
-          <p>
-            Through coursework and personal projects, I’ve been improving my skills in front-end
-            development, visual design, and writing clean code that is easy to maintain.
-          </p>
-        </div>
-      </section>
-
-      <!-- Skills section -->
-      <section id="skills" class="section section-alt">
+      <section class="section section-alt">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Skills & Interests</p>
-            <h2>What I’m learning and exploring.</h2>
+            <p class="eyebrow">Training & Certifications</p>
+            <h2>Revature training and current technical progress.</h2>
           </div>
-          <div class="skills-grid" aria-label="Skills and interests list">
-            <div class="skill-item">
-              <h3>Web Design</h3>
-              <p>Creating layouts that are clean, attractive, and easy to use.</p>
-            </div>
-            <div class="skill-item">
-              <h3>HTML & CSS</h3>
-              <p>Structuring content and styling pages for a strong user experience.</p>
-            </div>
-            <div class="skill-item">
-              <h3>JavaScript</h3>
-              <p>Adding simple interactivity and improving how pages respond to users.</p>
-            </div>
-            <div class="skill-item">
-              <h3>Accessibility</h3>
-              <p>Making content readable, usable, and welcoming for everyone.</p>
-            </div>
+
+          <div class="training-grid">
+            <article class="training-item">
+              <h3>Revature Full Stack Fundamentals</h3>
+              <p>Intensive Java full-stack development program focused on practical implementation, engineering fundamentals, and real-world workflows.</p>
+            </article>
+            <article class="training-item">
+              <h3>Current Status</h3>
+              <p>3 complete projects, 35+ unit tests passing, and continued focus on advanced Java and Spring topics.</p>
+            </article>
+          </div>
+
+          <div class="work-steps" style="margin-top: 1.5rem;">
+            <article class="step-item">
+              <h3>Week 1</h3>
+              <p>Java basics, arrays, variables, and compilation.</p>
+            </article>
+            <article class="step-item">
+              <h3>Week 2</h3>
+              <p>Object-oriented programming and constructors.</p>
+            </article>
+            <article class="step-item">
+              <h3>Weeks 3-4</h3>
+              <p>SOLID principles, Git, Agile, SQL design, and database fundamentals.</p>
+            </article>
+            <article class="step-item">
+              <h3>Weeks 5-8</h3>
+              <p>JDBC, REST APIs, Javalin, JSON, Collections, and transactions.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Project section -->
-      <section id="projects" class="section container">
-        <div class="section-heading">
-          <p class="eyebrow">Project</p>
-          <h2>Featured work.</h2>
-        </div>
-
-        <article class="project-card" aria-label="Featured project card">
-          <div class="project-copy">
-            <h3>Study Planner Dashboard</h3>
-            <p>
-              I created a simple dashboard for organizing classes, assignments, and study goals.
-              The page focuses on clear information, readable layout, and helpful visual hierarchy.
-            </p>
-            <ul>
-              <li>Built with semantic HTML and responsive CSS</li>
-              <li>Includes clear sections for tasks and priorities</li>
-              <li>Designed to feel simple and student-friendly</li>
-            </ul>
-            <a class="button primary" href="#contact">Ask about it</a>
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">How I Work</p>
+            <h2>My development process.</h2>
           </div>
-        </article>
+
+          <div class="work-steps">
+            <article class="step-item">
+              <h3>1. Understand before coding</h3>
+              <p>Read documentation, trace examples, and clarify requirements.</p>
+            </article>
+            <article class="step-item">
+              <h3>2. Test-driven</h3>
+              <p>Write tests first and code to pass them.</p>
+            </article>
+            <article class="step-item">
+              <h3>3. Clean architecture</h3>
+              <p>Separate concerns into layers for maintainability.</p>
+            </article>
+            <article class="step-item">
+              <h3>4. Continuous learning</h3>
+              <p>Review code, understand patterns, and refactor when needed.</p>
+            </article>
+            <article class="step-item">
+              <h3>5. Debug systematically</h3>
+              <p>Read error messages, trace execution, and fix root cause.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s connect and build something useful.</h2>
+          </div>
+
+          <div class="contact-card">
+            <ul class="contact-list">
+              <li><strong>Email:</strong> <a href="mailto:mohammadc60@gmail.com">mohammadc60@gmail.com</a></li>
+              <li><strong>Phone:</strong> <a href="tel:+12066964197">(206) 696-4197</a></li>
+              <li><strong>Location:</strong> <span class="muted">Seattle, Washington</span></li>
+              <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mohammadchaudhryuw" target="_blank" rel="noreferrer">linkedin.com/in/mohammadchaudhryuw</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/mohc60" target="_blank" rel="noreferrer">github.com/mohc60</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer id="contact" class="site-footer">
-      <div class="container footer-content">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Let’s connect.</h2>
-        </div>
-        <div class="footer-links" aria-label="Contact links">
-          <a href="mailto:ava@example.com">ava@example.com</a>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>Last updated: September 2026</p>
+        <p>© 2026 Mohammad Chaudhry</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // Copy code button behavior for all code snippets.
+      document.querySelectorAll('.copy-btn').forEach((button) => {
+        button.addEventListener('click', async () => {
+          const targetId = button.getAttribute('data-copy-target');
+          const code = document.getElementById(targetId)?.innerText || '';
+
+          try {
+            await navigator.clipboard.writeText(code);
+            const originalText = button.textContent;
+            button.textContent = 'Copied';
+
+            setTimeout(() => {
+              button.textContent = originalText;
+            }, 1200);
+          } catch (error) {
+            button.textContent = 'Failed';
+            setTimeout(() => {
+              button.textContent = 'Copy';
+            }, 1200);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
